@@ -37,9 +37,19 @@ export default function App() {
 
         <View>
           {/* Tasks will be shown Here */}
+          {/* Delete task on click */}
 
           {taskItems.map((item, index) => {
-            return <Tasks key={index} text={item} />;
+            return (
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  deleteTask(index);
+                }}
+              >
+                <Tasks text={item} />
+              </TouchableOpacity>
+            );
           })}
         </View>
       </View>
